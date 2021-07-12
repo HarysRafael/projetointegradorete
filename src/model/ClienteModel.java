@@ -13,8 +13,9 @@ public class ClienteModel {
     private String cidade;
 
     public ClienteModel() {
+    
     }
-
+    
     public int getId() {
         return id;
     }
@@ -77,6 +78,7 @@ public class ClienteModel {
 
     public void setCidade(String cidade) {
         this.cidade = cidade;
-    }    
+    }
+
     
 }

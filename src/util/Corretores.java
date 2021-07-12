@@ -1,4 +1,4 @@
-package utilitarios;
+package util;
 
 public class Corretores {
 
