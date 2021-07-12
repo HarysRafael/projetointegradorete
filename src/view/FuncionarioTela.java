@@ -11,9 +11,9 @@ import table.FuncionarioTableModel;
 
 public class FuncionarioTela extends javax.swing.JInternalFrame {
 
+    private Date dataAtual;
     private FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
     private FuncionarioModel funcionarioModel = new FuncionarioModel();
-    private Date dataAtual;
     private SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
     private MaskFormatter formatoTel;
 
