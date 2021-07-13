@@ -17,15 +17,14 @@ public class ClienteDAO {
     private PreparedStatement stmt;
     private ResultSet rs;
     private Statement st;
-    
-    
+
     public ClienteDAO() {
         conn = new Conexao().getConnection();
     }
 
     public void cadastrarCliente(ClienteModel clienteModel) {
-        
-        String sql = "INSERT INTO tbl_cliente (nome_cliente, email_cliente, telefone_cliente, datacadastro_cliente, rua_cliente, bairro_cliente, cidade_cliente) VALUES (?,?,?,?,?,?,?)";        
+
+        String sql = "INSERT INTO tbl_cliente (nome_cliente, email_cliente, telefone_cliente, datacadastro_cliente, rua_cliente, bairro_cliente, cidade_cliente) VALUES (?,?,?,?,?,?,?)";
         try {
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, clienteModel.getNome());
@@ -38,9 +37,9 @@ public class ClienteDAO {
             stmt.execute();
             stmt.close();
         } catch (Exception e) {
-            throw new RuntimeException("Erro ao cadastrar cliente: " + e);
+            throw new RuntimeException("Erro ao cadastrar Cliente: " + e);
         }
-        
+
     }
 
     public void editarCliente(ClienteModel clienteModel) {
@@ -59,9 +58,9 @@ public class ClienteDAO {
             stmt.close();
 
         } catch (Exception e) {
-            throw new RuntimeException("Erro ao editar: " + e);
+            throw new RuntimeException("Erro ao editar cliente: " + e);
         }
-        
+
     }
 
     public void excluirCliente(int id) {
@@ -72,9 +71,9 @@ public class ClienteDAO {
             st.close();
 
         } catch (Exception e) {
-            throw new RuntimeException("Erro ao editar: " + e);
+            throw new RuntimeException("Erro ao deletar cliente: " + e);
         }
-        
+
     }
 
     public ArrayList<ClienteModel> listarTodos() {
@@ -95,16 +94,16 @@ public class ClienteDAO {
                 clienteModel.setDataCadastro(corretores.converterParaJava(rs.getString("dataCadastro_cliente")));
                 lista.add(clienteModel);
             }
-            
+
         } catch (Exception e) {
-            throw new RuntimeException("Erro ao listar: " + e);
+            throw new RuntimeException("Erro ao listar clientes: " + e);
         }
-        
+
         return lista;
     }
 
     public ArrayList<ClienteModel> encontrarPorNome(String nome) {
-        
+
         String sql = "SELECT * FROM tbl_cliente WHERE nome_cliente LIKE '%" + nome + "%'";
         try {
             st = conn.createStatement();
@@ -123,9 +122,9 @@ public class ClienteDAO {
             }
 
         } catch (Exception e) {
-            throw new RuntimeException("Erro ao listar: " + e);
+            throw new RuntimeException("Erro ao buscar cliente: " + e);
         }
-        
+
         return lista;
     }
 

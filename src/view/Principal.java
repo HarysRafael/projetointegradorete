@@ -8,11 +8,12 @@ import util.Conexao;
 
 public class Principal extends javax.swing.JFrame {
 
-    FundoTela tela;
+    CardapioTela cardapioTela;
     ClienteTela clienteTela;
-    FuncionarioTela funcionarioTela;
     Connection conexao = null;
-
+    FundoTela tela;
+    FuncionarioTela funcionarioTela;
+    
     public Principal() {
         super("Lanchonete");
         initComponents();
@@ -63,6 +64,11 @@ public class Principal extends javax.swing.JFrame {
         menuCadastro.add(telaFuncionarios);
 
         telaCardapio.setText("Cardápio");
+        telaCardapio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                telaCardapioMouseClicked(evt);
+            }
+        });
         menuCadastro.add(telaCardapio);
 
         menuBarra.add(menuCadastro);
@@ -105,6 +111,12 @@ public class Principal extends javax.swing.JFrame {
       tela.add(funcionarioTela);
       funcionarioTela.setVisible(true);
     }//GEN-LAST:event_telaFuncionariosMouseClicked
+
+    private void telaCardapioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_telaCardapioMouseClicked
+      cardapioTela = new CardapioTela();
+      tela.add(cardapioTela);
+      cardapioTela.setVisible(true);
+    }//GEN-LAST:event_telaCardapioMouseClicked
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

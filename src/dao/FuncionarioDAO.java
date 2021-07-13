@@ -4,10 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.FuncionarioModel;
 import util.Conexao;
 import util.Corretores;
@@ -44,7 +41,7 @@ public class FuncionarioDAO {
 
     public void editarFuncionario(FuncionarioModel funcionarioModel) {
 
-       String sql = "UPDATE tbl_funcionario SET nome_funcionario = ?, email_funcionario = ?, telefone_funcionario = ?, datacontrato_funcionario = ? WHERE id_funcionario = ?";
+        String sql = "UPDATE tbl_funcionario SET nome_funcionario = ?, email_funcionario = ?, telefone_funcionario = ?, datacontrato_funcionario = ? WHERE id_funcionario = ?";
         try {
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, funcionarioModel.getNome());
@@ -54,9 +51,9 @@ public class FuncionarioDAO {
             stmt.setInt(5, funcionarioModel.getId());
             stmt.execute();
             stmt.close();
-            
+
         } catch (Exception e) {
-            throw new RuntimeException("Erro ao cadastrar funcionário: " + e);
+            throw new RuntimeException("Erro ao editar funcionário: " + e);
         }
     }
 
@@ -68,7 +65,7 @@ public class FuncionarioDAO {
             st.execute(sql);
             st.close();
         } catch (Exception e) {
-            throw new RuntimeException("Erro ao Deletar: " + e);
+throw new RuntimeException("Erro ao deletar funcionário: " + e);
         }
     }
 
@@ -88,7 +85,7 @@ public class FuncionarioDAO {
                 lista.add(funcionarioModel);
             }
         } catch (Exception e) {
-            throw new RuntimeException("Erro ao listar: " + e);
+            throw new RuntimeException("Erro ao listar funcionários: " + e);
         }
 
         return lista;
@@ -110,7 +107,7 @@ public class FuncionarioDAO {
                 lista.add(funcionarioModel);
             }
         } catch (Exception e) {
-            throw new RuntimeException("Erro ao listar: " + e);
+            throw new RuntimeException("Erro ao buscar funcionário: " + e);
         }
 
         return lista;

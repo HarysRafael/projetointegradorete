@@ -3,10 +3,6 @@ package table;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 import model.FuncionarioModel;
-import static table.ClienteTableModel.COL_EMAIL_CLIENTE;
-import static table.ClienteTableModel.COL_ID_CLIENTE;
-import static table.ClienteTableModel.COL_NOME_CLIENTE;
-import static table.ClienteTableModel.COL_TELEFONE_CLIENTE;
 
 public class FuncionarioTableModel extends AbstractTableModel{
    

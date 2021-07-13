@@ -20,8 +20,6 @@ public class ClienteTableModel extends AbstractTableModel{
         lista = new ArrayList<ClienteModel>(listaClienteModel);
     }
     
-    
-    
     @Override
     public int getRowCount() {
         return lista.size();
