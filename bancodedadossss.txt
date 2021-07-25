@@ -1,0 +1,38 @@
+CREATE TABLE `tbl_cardapio` (
+  `id_cardapio` int NOT NULL AUTO_INCREMENT,
+  `nome_cardapio` varchar(60) DEFAULT NULL,
+  `valor_cardapio` double DEFAULT NULL,
+  PRIMARY KEY (`id_cardapio`)
+)
+
+CREATE TABLE `tbl_cliente` (
+  `id_cliente` int NOT NULL AUTO_INCREMENT,
+  `nome_cliente` varchar(30) DEFAULT NULL,
+  `email_cliente` varchar(60) DEFAULT NULL,
+  `telefone_cliente` varchar(20) DEFAULT NULL,
+  `rua_cliente` varchar(20) DEFAULT NULL,
+  `bairro_cliente` varchar(20) DEFAULT NULL,
+  `cidade_cliente` varchar(20) DEFAULT NULL,
+  `datacadastro_cliente` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id_cliente`)
+)
+
+CREATE TABLE `tbl_funcionario` (
+  `id_funcionario` int NOT NULL AUTO_INCREMENT,
+  `nome_funcionario` varchar(60) DEFAULT NULL,
+  `email_funcionario` varchar(60) DEFAULT NULL,
+  `telefone_funcionario` varchar(20) DEFAULT NULL,
+  `dataContrato_funcionario` date DEFAULT NULL,
+  PRIMARY KEY (`id_funcionario`)
+) 
+
+CREATE TABLE `tbl_pedido` (
+  `id_pedido` int NOT NULL AUTO_INCREMENT,
+  `data_pedido` varchar(30) DEFAULT NULL,
+  `total_pedido` varchar(30) DEFAULT NULL,
+  `nome_cliente_pedido` varchar(30) DEFAULT NULL,
+  `bairro_cliente_pedido` varchar(30) DEFAULT NULL,
+  `id_cliente_pedido` int DEFAULT NULL,
+  `dataCadastro_cliente_pedido` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id_pedido`)
+) 

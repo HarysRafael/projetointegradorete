@@ -1,17 +1,72 @@
 package model;
 
-import java.util.List;
-
 public class PedidoModel {
-    
+
     private int id;
+    private String data;
+    private String total;
     private int idCliente;
-    private int idFuncionario;
-    private double valorTotal;
-    private String Data;
-    private String Hora;
-    private String Status;
-    private List<Integer> idCardapio;
-    private List<Integer> quantidade;
-    
+    private String bairroCliente;
+    private String nomeCliente;
+    private String dataCadCliente;
+
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public String getBairroCliente() {
+        return bairroCliente;
+    }
+
+    public void setBairroCliente(String bairroCliente) {
+        this.bairroCliente = bairroCliente;
+    }
+
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
+
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
+    }
+
+    public String getDataCadCliente() {
+        return dataCadCliente;
+    }
+
+    public void setDataCadCliente(String dataCadCliente) {
+        this.dataCadCliente = dataCadCliente;
+    }
+
+    public PedidoModel() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getTotal() {
+        return total;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
+    }
+
 }

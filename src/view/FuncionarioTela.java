@@ -302,6 +302,7 @@ public class FuncionarioTela extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btLimparFuncionarioMouseClicked
 
     private void btDeletarFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btDeletarFuncionarioMouseClicked
+       
         if (tfFuncionarioId.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo de Código está vazio, escolha um funcionário!", "Funcionário", JOptionPane.WARNING_MESSAGE);
         } else {
@@ -335,7 +336,7 @@ public class FuncionarioTela extends javax.swing.JInternalFrame {
     private void btSalvarFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarFuncionarioActionPerformed
         
         if (tfFuncionarioNome.getText().equals("") || tfFuncionarioEmail.getText().equals("") || tfFuncionarioTelefone.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Preencha Todos os Campos!", "Cliente", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Preencha Todos os Campos!", "Funcionário", JOptionPane.WARNING_MESSAGE);
         } else {
             if (tfFuncionarioId.getText().equals("")) {
 

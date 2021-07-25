@@ -1,18 +1,16 @@
 package view;
 
 import dao.CardapioDAO;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.swing.JOptionPane;
-import javax.swing.text.MaskFormatter;
 import model.CardapioModel;
 import table.CardapioTableModel;
 
+
 public class CardapioTela extends javax.swing.JInternalFrame {
 
-    private Date dataAtual;
     private CardapioDAO cardapioDAO = new CardapioDAO();
     private CardapioModel cardapioModel = new CardapioModel();
+        
 
     public CardapioTela() {
         initComponents();
@@ -126,6 +124,12 @@ public class CardapioTela extends javax.swing.JInternalFrame {
         }
 
         jLabel5.setText("Perquisar (nome):");
+
+        tfPesquisaCardapio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tfPesquisaCardapioKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -244,7 +248,6 @@ public class CardapioTela extends javax.swing.JInternalFrame {
                 cardapioDAO.editarCardapio(cardapioModel);
                 this.limparCampos();
             }
-
         }
 
         tbCardapio.setModel(new CardapioTableModel(new CardapioDAO().listarTodos()));
@@ -266,8 +269,7 @@ public class CardapioTela extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btDeletarCardapioMouseClicked
 
     private void tbCardapioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbCardapioKeyPressed
-        String nome = tfPesquisaCardapio.getText();
-        tbCardapio.setModel(new CardapioTableModel(new CardapioDAO().encontrarPorNome(nome)));
+        
     }//GEN-LAST:event_tbCardapioKeyPressed
 
     private void tbCardapioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCardapioMouseClicked
@@ -276,7 +278,11 @@ public class CardapioTela extends javax.swing.JInternalFrame {
         tfCardapioValor.setText(tbCardapio.getValueAt(tbCardapio.getSelectedRow(), CardapioTableModel.COL_VALOR_CARDAPIO).toString());
     }//GEN-LAST:event_tbCardapioMouseClicked
 
-    
+    private void tfPesquisaCardapioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPesquisaCardapioKeyPressed
+        String nome = tfPesquisaCardapio.getText();
+        tbCardapio.setModel(new CardapioTableModel(new CardapioDAO().encontrarPorNome(nome)));
+    }//GEN-LAST:event_tfPesquisaCardapioKeyPressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btDeletarCardapio;

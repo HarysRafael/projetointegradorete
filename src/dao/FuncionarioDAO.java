@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import model.FuncionarioModel;
 import util.Conexao;
@@ -17,7 +18,7 @@ public class FuncionarioDAO {
     private PreparedStatement stmt;
     private ResultSet rs;
     private Statement st;
-
+    
     public FuncionarioDAO() {
         conn = new Conexao().getConnection();
 
@@ -34,7 +35,7 @@ public class FuncionarioDAO {
             stmt.setString(4, corretores.converterParaSql(funcionarioModel.getDataContrato()));
             stmt.execute();
             stmt.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             throw new RuntimeException("Erro ao cadastrar funcionário: " + e);
         }
     }
@@ -52,7 +53,7 @@ public class FuncionarioDAO {
             stmt.execute();
             stmt.close();
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             throw new RuntimeException("Erro ao editar funcionário: " + e);
         }
     }
@@ -64,7 +65,7 @@ public class FuncionarioDAO {
             st = conn.createStatement();
             st.execute(sql);
             st.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
 throw new RuntimeException("Erro ao deletar funcionário: " + e);
         }
     }
@@ -84,7 +85,7 @@ throw new RuntimeException("Erro ao deletar funcionário: " + e);
                 funcionarioModel.setDataContrato(corretores.converterParaJava(rs.getString("dataContrato_funcionario")));
                 lista.add(funcionarioModel);
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             throw new RuntimeException("Erro ao listar funcionários: " + e);
         }
 
@@ -106,7 +107,7 @@ throw new RuntimeException("Erro ao deletar funcionário: " + e);
                 funcionarioModel.setDataContrato(corretores.converterParaJava(rs.getString("dataContrato_funcionario")));
                 lista.add(funcionarioModel);
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             throw new RuntimeException("Erro ao buscar funcionário: " + e);
         }
 

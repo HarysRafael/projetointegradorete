@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import model.CardapioModel;
@@ -31,7 +32,7 @@ public class CardapioDAO {
             stmt.setDouble(2, cardapioModel.getValor());
             stmt.execute();
             stmt.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             throw new RuntimeException("Erro ao cadastrar item: " + e);
         }
 
@@ -47,7 +48,7 @@ public class CardapioDAO {
             stmt.execute();
             stmt.close();
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             throw new RuntimeException("Erro ao editar item: " + e);
         }
 
@@ -60,7 +61,7 @@ public class CardapioDAO {
             st.execute(sql);
             st.close();
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             throw new RuntimeException("Erro ao deletar item: " + e);
         }
 
@@ -80,7 +81,7 @@ public class CardapioDAO {
                 lista.add(cardapioModel);
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             throw new RuntimeException("Erro ao listar cardapio: " + e);
         }
 
@@ -101,7 +102,7 @@ public class CardapioDAO {
                 lista.add(cardapioModel);
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             throw new RuntimeException("Erro ao buscar item: " + e);
         }
 

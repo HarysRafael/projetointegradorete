@@ -6,6 +6,7 @@ import util.Conexao;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import util.Corretores;
 
@@ -36,7 +37,7 @@ public class ClienteDAO {
             stmt.setString(7, clienteModel.getCidade());
             stmt.execute();
             stmt.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             throw new RuntimeException("Erro ao cadastrar Cliente: " + e);
         }
 
@@ -57,7 +58,7 @@ public class ClienteDAO {
             stmt.execute();
             stmt.close();
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             throw new RuntimeException("Erro ao editar cliente: " + e);
         }
 
@@ -70,7 +71,7 @@ public class ClienteDAO {
             st.execute(sql);
             st.close();
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             throw new RuntimeException("Erro ao deletar cliente: " + e);
         }
 
@@ -95,14 +96,14 @@ public class ClienteDAO {
                 lista.add(clienteModel);
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             throw new RuntimeException("Erro ao listar clientes: " + e);
         }
 
         return lista;
     }
 
-    public ArrayList<ClienteModel> encontrarPorNome(String nome) {
+    public ArrayList<ClienteModel> listarPorNome(String nome) {
 
         String sql = "SELECT * FROM tbl_cliente WHERE nome_cliente LIKE '%" + nome + "%'";
         try {
@@ -121,11 +122,39 @@ public class ClienteDAO {
                 lista.add(clienteModel);
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             throw new RuntimeException("Erro ao buscar cliente: " + e);
         }
 
         return lista;
     }
+    
+    public ClienteModel buscarUnicoClientePorNome(String nome){
+            ClienteModel clienteModel = new ClienteModel();
+            String sql = "SELECT * FROM tbl_cliente WHERE nome_cliente LIKE '%" + nome + "%'";
+        try {
+            st = conn.createStatement();
+            rs = st.executeQuery(sql);
+            while (rs.next()) {
+                
+                clienteModel.setId(rs.getInt("id_cliente"));
+                clienteModel.setNome(rs.getString("nome_cliente"));
+                clienteModel.setEmail(rs.getString("email_cliente"));
+                clienteModel.setTelefone(rs.getString("telefone_cliente"));
+                clienteModel.setRua(rs.getString("rua_cliente"));
+                clienteModel.setBairro(rs.getString("bairro_cliente"));
+                clienteModel.setCidade(rs.getString("cidade_cliente"));
+                clienteModel.setDataCadastro(corretores.converterParaJava(rs.getString("dataCadastro_cliente")));
+                return clienteModel;
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao buscar cliente: " + e);
+        }
+
+        return clienteModel;
+    }
+    
+    
 
 }

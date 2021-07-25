@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JFormattedTextField;
-import javax.swing.JFrame;
 import javax.swing.text.MaskFormatter;
 import model.ClienteModel;
 import table.ClienteTableModel;
@@ -412,7 +411,6 @@ public class ClienteTela extends javax.swing.JInternalFrame {
             if (tfClienteId.getText().equals("")) {
 
                 dataAtual = new Date();
-                formatoData = new SimpleDateFormat("dd/MM/yyyy");
                 clienteModel.setNome(tfClienteNome.getText());
                 clienteModel.setEmail(tfClienteEmail.getText());
                 clienteModel.setTelefone(tfClienteTelefone.getText());
@@ -477,7 +475,7 @@ public class ClienteTela extends javax.swing.JInternalFrame {
 
     private void tfPesquisaNomeClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPesquisaNomeClienteKeyPressed
         String nome = tfPesquisaNomeCliente.getText();
-        tbClientes.setModel(new ClienteTableModel(new ClienteDAO().encontrarPorNome(nome)));
+        tbClientes.setModel(new ClienteTableModel(new ClienteDAO().listarPorNome(nome)));
     }//GEN-LAST:event_tfPesquisaNomeClienteKeyPressed
 
     private void tfClienteDataCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfClienteDataCadastroActionPerformed

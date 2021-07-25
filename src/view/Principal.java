@@ -8,12 +8,15 @@ import util.Conexao;
 
 public class Principal extends javax.swing.JFrame {
 
-    CardapioTela cardapioTela;
-    ClienteTela clienteTela;
-    Connection conexao = null;
-    FundoTela tela;
-    FuncionarioTela funcionarioTela;
+    private CardapioTela cardapioTela;
+    private ClienteTela clienteTela;
+    private Connection conexao = null;
+    private FundoTela tela;
+    private FuncionarioTela funcionarioTela;
+    private PedidoTela pedidoTela;
+    private BalancoTela balancoTela;
     
+
     public Principal() {
         super("Lanchonete");
         initComponents();
@@ -36,6 +39,8 @@ public class Principal extends javax.swing.JFrame {
         telaFuncionarios = new javax.swing.JMenu();
         telaCardapio = new javax.swing.JMenu();
         menuFinanceiro = new javax.swing.JMenu();
+        telaPedidos = new javax.swing.JMenuItem();
+        telaBalanco = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,8 +78,30 @@ public class Principal extends javax.swing.JFrame {
 
         menuBarra.add(menuCadastro);
 
-        menuFinanceiro.setText("Financeiro");
+        menuFinanceiro.setText("Finanças");
         menuFinanceiro.setFocusable(false);
+        menuFinanceiro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuFinanceiroMouseClicked(evt);
+            }
+        });
+
+        telaPedidos.setText("Pedidos");
+        telaPedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telaPedidosActionPerformed(evt);
+            }
+        });
+        menuFinanceiro.add(telaPedidos);
+
+        telaBalanco.setText("Balanço");
+        telaBalanco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telaBalancoActionPerformed(evt);
+            }
+        });
+        menuFinanceiro.add(telaBalanco);
+
         menuBarra.add(menuFinanceiro);
 
         setJMenuBar(menuBarra);
@@ -94,29 +121,45 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void telaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaClienteActionPerformed
-        
-        
+
+
     }//GEN-LAST:event_telaClienteActionPerformed
 
     private void telaClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_telaClienteMouseClicked
-       clienteTela = new ClienteTela();
-       tela.add(clienteTela);
-       clienteTela.setVisible(true);
-       
-       
+        clienteTela = new ClienteTela();
+        tela.add(clienteTela);
+        clienteTela.setVisible(true);
+
+
     }//GEN-LAST:event_telaClienteMouseClicked
 
     private void telaFuncionariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_telaFuncionariosMouseClicked
-      funcionarioTela = new FuncionarioTela();
-      tela.add(funcionarioTela);
-      funcionarioTela.setVisible(true);
+        funcionarioTela = new FuncionarioTela();
+        tela.add(funcionarioTela);
+        funcionarioTela.setVisible(true);
     }//GEN-LAST:event_telaFuncionariosMouseClicked
 
     private void telaCardapioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_telaCardapioMouseClicked
-      cardapioTela = new CardapioTela();
-      tela.add(cardapioTela);
-      cardapioTela.setVisible(true);
+        cardapioTela = new CardapioTela();
+        tela.add(cardapioTela);
+        cardapioTela.setVisible(true);
     }//GEN-LAST:event_telaCardapioMouseClicked
+
+    private void menuFinanceiroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuFinanceiroMouseClicked
+
+    }//GEN-LAST:event_menuFinanceiroMouseClicked
+
+    private void telaBalancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaBalancoActionPerformed
+        balancoTela = new BalancoTela();
+        tela.add(balancoTela);
+        balancoTela.setVisible(true);
+    }//GEN-LAST:event_telaBalancoActionPerformed
+
+    private void telaPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telaPedidosActionPerformed
+        pedidoTela = new PedidoTela();
+        tela.add(pedidoTela);
+        pedidoTela.setVisible(true);
+    }//GEN-LAST:event_telaPedidosActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -130,8 +173,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuBar menuBarra;
     private javax.swing.JMenu menuCadastro;
     private javax.swing.JMenu menuFinanceiro;
+    private javax.swing.JMenuItem telaBalanco;
     private javax.swing.JMenu telaCardapio;
     private javax.swing.JMenu telaCliente;
     private javax.swing.JMenu telaFuncionarios;
+    private javax.swing.JMenuItem telaPedidos;
     // End of variables declaration//GEN-END:variables
 }
