@@ -102,36 +102,16 @@ public class PedidoTela extends javax.swing.JInternalFrame {
         jLabel4.setText("Telefone:");
 
         tfIdCliente.setEditable(false);
-        tfIdCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfIdClienteActionPerformed(evt);
-            }
-        });
 
         tfNomeCliente.setEditable(false);
 
         tfEmailCliente.setEditable(false);
-        tfEmailCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfEmailClienteActionPerformed(evt);
-            }
-        });
 
         tfTelefoneCliente.setEditable(false);
-        tfTelefoneCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfTelefoneClienteActionPerformed(evt);
-            }
-        });
 
         jLabel5.setText("Data Cadastro:");
 
         tfDataCadastroCliente.setEditable(false);
-        tfDataCadastroCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfDataCadastroClienteActionPerformed(evt);
-            }
-        });
 
         jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -147,18 +127,8 @@ public class PedidoTela extends javax.swing.JInternalFrame {
         tfRuaCliente.setEditable(false);
 
         tfCidadeCliente.setEditable(false);
-        tfCidadeCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfCidadeClienteActionPerformed(evt);
-            }
-        });
 
         tfBairroCliente.setEditable(false);
-        tfBairroCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfBairroClienteActionPerformed(evt);
-            }
-        });
 
         btOKCliente.setText("OK");
         btOKCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -332,6 +302,7 @@ public class PedidoTela extends javax.swing.JInternalFrame {
 
         tfNomeClienteTelaPedido.setEditable(false);
         tfNomeClienteTelaPedido.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tfNomeClienteTelaPedido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         btCancelarPedido.setText("Cancelar");
         btCancelarPedido.addActionListener(new java.awt.event.ActionListener() {
@@ -348,12 +319,6 @@ public class PedidoTela extends javax.swing.JInternalFrame {
 
         tfCardapioId.setEditable(false);
         tfCardapioId.setBackground(new java.awt.Color(204, 204, 204));
-
-        tfCardapioValor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfCardapioValorActionPerformed(evt);
-            }
-        });
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel20.setText("Cardápio");
@@ -391,12 +356,6 @@ public class PedidoTela extends javax.swing.JInternalFrame {
 
         jLabel10.setText("Quantidade:");
 
-        tfQuantidadeItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfQuantidadeItemActionPerformed(evt);
-            }
-        });
-
         btAdicionarItem.setText("Adicionar");
         btAdicionarItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -415,11 +374,6 @@ public class PedidoTela extends javax.swing.JInternalFrame {
         btFinalizarPedido.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btFinalizarPedidoMouseClicked(evt);
-            }
-        });
-        btFinalizarPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btFinalizarPedidoActionPerformed(evt);
             }
         });
 
@@ -446,11 +400,6 @@ public class PedidoTela extends javax.swing.JInternalFrame {
                 return canEdit [columnIndex];
             }
         });
-        tbPedido.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbPedidoMouseClicked(evt);
-            }
-        });
         jScrollPane3.setViewportView(tbPedido);
         if (tbPedido.getColumnModel().getColumnCount() > 0) {
             tbPedido.getColumnModel().getColumn(0).setResizable(false);
@@ -461,12 +410,6 @@ public class PedidoTela extends javax.swing.JInternalFrame {
         }
 
         jLabel11.setText("Total do pedido: R$");
-
-        tfTotalPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfTotalPedidoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -531,9 +474,9 @@ public class PedidoTela extends javax.swing.JInternalFrame {
                                         .addGap(41, 41, 41)
                                         .addComponent(btRemoverItem))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
+                                        .addGap(24, 24, 24)
                                         .addComponent(jLabel11)
-                                        .addGap(7, 7, 7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(tfTotalPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(91, 91, 91))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -635,26 +578,6 @@ public class PedidoTela extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btOKClienteActionPerformed
 
-    private void tfBairroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfBairroClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfBairroClienteActionPerformed
-
-    private void tfCidadeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCidadeClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfCidadeClienteActionPerformed
-
-    private void tfDataCadastroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDataCadastroClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfDataCadastroClienteActionPerformed
-
-    private void tfTelefoneClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTelefoneClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfTelefoneClienteActionPerformed
-
-    private void tfEmailClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEmailClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfEmailClienteActionPerformed
-
     private void tbClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbClientesMouseClicked
         tfIdCliente.setText(tbClientes.getValueAt(tbClientes.getSelectedRow(), ClienteTableModel.COL_ID_CLIENTE).toString());
         tfNomeCliente.setText(tbClientes.getValueAt(tbClientes.getSelectedRow(), ClienteTableModel.COL_NOME_CLIENTE).toString());
@@ -671,14 +594,6 @@ public class PedidoTela extends javax.swing.JInternalFrame {
         tbClientes.setModel(new ClienteTableModel(new ClienteDAO().listarPorNome(nome)));
     }//GEN-LAST:event_tfPesquisarClienteKeyPressed
 
-    private void tfIdClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIdClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfIdClienteActionPerformed
-
-    private void tfCardapioValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCardapioValorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfCardapioValorActionPerformed
-
     private void tfPesquisarCardapioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPesquisarCardapioKeyPressed
         String nome = tfPesquisarCardapio.getText();
         tbCardapio.setModel(new CardapioTableModel(new CardapioDAO().encontrarPorNome(nome)));
@@ -689,10 +604,6 @@ public class PedidoTela extends javax.swing.JInternalFrame {
         tfCardapioNome.setText(tbCardapio.getValueAt(tbCardapio.getSelectedRow(), CardapioTableModel.COL_NOME_CARDAPIO).toString());
         tfCardapioValor.setText(tbCardapio.getValueAt(tbCardapio.getSelectedRow(), CardapioTableModel.COL_VALOR_CARDAPIO).toString());
     }//GEN-LAST:event_tbCardapioMouseClicked
-
-    private void tfQuantidadeItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfQuantidadeItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfQuantidadeItemActionPerformed
 
     private void btAdicionarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarItemActionPerformed
 
@@ -712,15 +623,6 @@ public class PedidoTela extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btRemoverItemActionPerformed
 
-    private void btFinalizarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btFinalizarPedidoActionPerformed
-
-
-    }//GEN-LAST:event_btFinalizarPedidoActionPerformed
-
-    private void tbPedidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPedidoMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbPedidoMouseClicked
-
     private void btFinalizarPedidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btFinalizarPedidoMouseClicked
          if (tfTotalPedido.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "É preciso selecionar algum produto para realizar o pedido", "Pedido", JOptionPane.WARNING_MESSAGE);
@@ -732,10 +634,6 @@ public class PedidoTela extends javax.swing.JInternalFrame {
         confirmarPedido(pedidoModel);
          }
     }//GEN-LAST:event_btFinalizarPedidoMouseClicked
-
-    private void tfTotalPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTotalPedidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfTotalPedidoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

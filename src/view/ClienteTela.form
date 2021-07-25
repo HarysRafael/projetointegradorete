@@ -340,9 +340,6 @@
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfClienteDataCadastroActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="ClienteDataCadastroLabel3">
       <Properties>
@@ -365,14 +362,8 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tfClienteNome">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfClienteNomeActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="tfClienteEmail">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfClienteEmailActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="ClienteNomeLabel2">
       <Properties>
@@ -387,9 +378,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tfClienteTelefone">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfClienteTelefoneActionPerformed"/>
-      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JFormattedTextField(formatoTel)"/>
         <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="try{&#xd;&#xa;formatoTel = new MaskFormatter (&quot;(##) #####-####&quot;);&#xd;&#xa;&#xd;&#xa;}catch(Exception e){&#xd;&#xa;    JOptionPane.showMessageDialog(null, &quot;Erro ao Inserir Campo&quot;, &quot;Ero&quot;, 0);&#xd;&#xa;}"/>
@@ -428,7 +416,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="tfPesquisaNomeCliente">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfPesquisaNomeClienteActionPerformed"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tfPesquisaNomeClienteKeyPressed"/>
       </Events>
     </Component>

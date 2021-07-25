@@ -68,27 +68,10 @@ public class FuncionarioTela extends javax.swing.JInternalFrame {
 
         tfFuncionarioId.setEditable(false);
         tfFuncionarioId.setBackground(new java.awt.Color(204, 204, 204));
-        tfFuncionarioId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfFuncionarioIdActionPerformed(evt);
-            }
-        });
 
         jLabel4.setText("Email:");
 
-        tfFuncionarioEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfFuncionarioEmailActionPerformed(evt);
-            }
-        });
-
         jLabel5.setText("Telefone:");
-
-        tfFuncionarioTelefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfFuncionarioTelefoneActionPerformed(evt);
-            }
-        });
 
         jLabel6.setText("Contratado:");
 
@@ -281,14 +264,6 @@ public class FuncionarioTela extends javax.swing.JInternalFrame {
         tfFuncionarioTelefone.setText("");
         tfFuncionarioDataContrato.setText("");
     }
-    private void tfFuncionarioIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFuncionarioIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfFuncionarioIdActionPerformed
-
-    private void tfFuncionarioEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFuncionarioEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfFuncionarioEmailActionPerformed
-
     private void tfPersquisarNomeFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPersquisarNomeFuncionarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfPersquisarNomeFuncionarioActionPerformed
@@ -365,10 +340,6 @@ public class FuncionarioTela extends javax.swing.JInternalFrame {
 
         tbFuncionario.setModel(new FuncionarioTableModel(new FuncionarioDAO().listarTodos()));
     }//GEN-LAST:event_btSalvarFuncionarioActionPerformed
-
-    private void tfFuncionarioTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfFuncionarioTelefoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfFuncionarioTelefoneActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btDeletarFuncionario;

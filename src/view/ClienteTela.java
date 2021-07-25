@@ -129,11 +129,6 @@ public class ClienteTela extends javax.swing.JInternalFrame {
 
         tfClienteDataCadastro.setEditable(false);
         tfClienteDataCadastro.setBackground(new java.awt.Color(204, 204, 204));
-        tfClienteDataCadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfClienteDataCadastroActionPerformed(evt);
-            }
-        });
 
         ClienteDataCadastroLabel3.setText("Data de Cadastro:");
 
@@ -143,27 +138,9 @@ public class ClienteTela extends javax.swing.JInternalFrame {
 
         ClienteIdLabel3.setText("Código:");
 
-        tfClienteNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfClienteNomeActionPerformed(evt);
-            }
-        });
-
-        tfClienteEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfClienteEmailActionPerformed(evt);
-            }
-        });
-
         ClienteNomeLabel2.setText("Nome:");
 
         ClienteTelefoneLabel3.setText("Teefone:");
-
-        tfClienteTelefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfClienteTelefoneActionPerformed(evt);
-            }
-        });
 
         btSalvarCliente.setText("Salvar");
         btSalvarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -188,11 +165,6 @@ public class ClienteTela extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Pesquisar (nome):");
 
-        tfPesquisaNomeCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfPesquisaNomeClienteActionPerformed(evt);
-            }
-        });
         tfPesquisaNomeCliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tfPesquisaNomeClienteKeyPressed(evt);
@@ -394,14 +366,6 @@ public class ClienteTela extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_NomeClienteTextField2ActionPerformed
 
-    private void tfClienteNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfClienteNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfClienteNomeActionPerformed
-
-    private void tfClienteEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfClienteEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfClienteEmailActionPerformed
-
     private void btSalvarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarClienteActionPerformed
 
         if (tfClienteNome.getText().equals("") || tfClienteEmail.getText().equals("") || tfClienteTelefone.getText().equals("")
@@ -440,10 +404,6 @@ public class ClienteTela extends javax.swing.JInternalFrame {
         tbClientes.setModel(new ClienteTableModel(new ClienteDAO().listarTodos()));
     }//GEN-LAST:event_btSalvarClienteActionPerformed
 
-    private void tfPesquisaNomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPesquisaNomeClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfPesquisaNomeClienteActionPerformed
-
     private void btLimparDadosClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparDadosClienteActionPerformed
         this.limparCampos();
     }//GEN-LAST:event_btLimparDadosClienteActionPerformed
@@ -477,14 +437,6 @@ public class ClienteTela extends javax.swing.JInternalFrame {
         String nome = tfPesquisaNomeCliente.getText();
         tbClientes.setModel(new ClienteTableModel(new ClienteDAO().listarPorNome(nome)));
     }//GEN-LAST:event_tfPesquisaNomeClienteKeyPressed
-
-    private void tfClienteDataCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfClienteDataCadastroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfClienteDataCadastroActionPerformed
-
-    private void tfClienteTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfClienteTelefoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfClienteTelefoneActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField BairroClienteTextField2;

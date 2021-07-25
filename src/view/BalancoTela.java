@@ -1,10 +1,20 @@
 package view;
 
 import dao.PedidoDAO;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
+import javax.swing.text.MaskFormatter;
+import model.PedidoModel;
 import table.BalancoTableModel;
 
 public class BalancoTela extends javax.swing.JInternalFrame {
-
+        
+    private MaskFormatter mascaraData;
+    private SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
     private PedidoDAO pedidoDao;
 
     public BalancoTela() {
@@ -13,7 +23,7 @@ public class BalancoTela extends javax.swing.JInternalFrame {
         tbBalanco.setModel(new BalancoTableModel(new PedidoDAO().listarTodos()));
 
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -24,6 +34,8 @@ public class BalancoTela extends javax.swing.JInternalFrame {
         tfPesquisaBalanco = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+
+        setClosable(true);
 
         tbBalanco.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -58,12 +70,7 @@ public class BalancoTela extends javax.swing.JInternalFrame {
             tbBalanco.getColumnModel().getColumn(6).setResizable(false);
         }
 
-        cbOpcaoPesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escolha uma opção para listar pedidos", "Bairro", "Nome" }));
-        cbOpcaoPesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbOpcaoPesquisaActionPerformed(evt);
-            }
-        });
+        cbOpcaoPesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Liste os pedidos por Nome ou Bairro", "Bairro", "Nome" }));
 
         tfPesquisaBalanco.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -87,58 +94,63 @@ public class BalancoTela extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(cbOpcaoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfPesquisaBalanco, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(378, 378, 378)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(379, 379, 379)
-                        .addComponent(jButton1)))
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(cbOpcaoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tfPesquisaBalanco, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(214, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(398, 398, 398))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(403, 403, 403))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(19, 19, 19)
                 .addComponent(jLabel1)
-                .addGap(36, 36, 36)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbOpcaoPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfPesquisaBalanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addGap(38, 38, 38)
                 .addComponent(jButton1)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cbOpcaoPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbOpcaoPesquisaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbOpcaoPesquisaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tfPesquisaBalancoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfPesquisaBalancoKeyPressed
-        if (cbOpcaoPesquisa.getSelectedItem().toString().equals("Bairro")) {
-            String bairro = tfPesquisaBalanco.getText();
-            tbBalanco.setModel(new BalancoTableModel(new PedidoDAO().buscarPedidoPorBairroCliente(bairro)));
-        }
-        if (cbOpcaoPesquisa.getSelectedItem().toString().equals("Nome")) {
-            String nome = tfPesquisaBalanco.getText();
-            tbBalanco.setModel(new BalancoTableModel(new PedidoDAO().buscarPedidoPorNomeCliente(nome)));
-        }
+     if(cbOpcaoPesquisa.getSelectedItem().equals("Nome")){
+         pesquisarPorNome();
+     }
+     if(cbOpcaoPesquisa.getSelectedItem().equals("Bairro")){
+         pesquisarPorBairro();
+     }else{
+          JOptionPane.showMessageDialog(null, "Escolha entre bairro ou nome para busca!", "Balanço", JOptionPane.WARNING_MESSAGE);   
+     }
     }//GEN-LAST:event_tfPesquisaBalancoKeyPressed
-
+    
+    public void pesquisarPorNome(){
+        String nome = tfPesquisaBalanco.getText();
+        tbBalanco.setModel(new BalancoTableModel(new PedidoDAO().listarPedidoPorNomeCliente(nome)));
+    }
+    
+    public void pesquisarPorBairro(){
+        String bairro = tfPesquisaBalanco.getText();
+        tbBalanco.setModel(new BalancoTableModel(new PedidoDAO().listarPedidoPorBairroCliente(bairro)));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbOpcaoPesquisa;
@@ -149,4 +161,7 @@ public class BalancoTela extends javax.swing.JInternalFrame {
     private javax.swing.JTextField tfPesquisaBalanco;
     // End of variables declaration//GEN-END:variables
 
+    
+    
+    
 }

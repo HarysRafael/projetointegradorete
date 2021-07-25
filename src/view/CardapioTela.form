@@ -158,9 +158,6 @@
     <Component class="javax.swing.JTextField" name="tfCardapioNome">
     </Component>
     <Component class="javax.swing.JTextField" name="tfCardapioValor">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfCardapioValorActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btSalvarCardapio">
       <Properties>
@@ -168,7 +165,6 @@
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btSalvarCardapioMouseClicked"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSalvarCardapioActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btLimparCardapio">
@@ -228,7 +224,6 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbCardapioMouseClicked"/>
-            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tbCardapioKeyPressed"/>
           </Events>
         </Component>
       </SubComponents>

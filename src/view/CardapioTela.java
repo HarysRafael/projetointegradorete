@@ -55,21 +55,10 @@ public class CardapioTela extends javax.swing.JInternalFrame {
         tfCardapioId.setEditable(false);
         tfCardapioId.setBackground(new java.awt.Color(204, 204, 204));
 
-        tfCardapioValor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfCardapioValorActionPerformed(evt);
-            }
-        });
-
         btSalvarCardapio.setText("Salvar");
         btSalvarCardapio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btSalvarCardapioMouseClicked(evt);
-            }
-        });
-        btSalvarCardapio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btSalvarCardapioActionPerformed(evt);
             }
         });
 
@@ -109,11 +98,6 @@ public class CardapioTela extends javax.swing.JInternalFrame {
         tbCardapio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbCardapioMouseClicked(evt);
-            }
-        });
-        tbCardapio.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                tbCardapioKeyPressed(evt);
             }
         });
         jScrollPane1.setViewportView(tbCardapio);
@@ -219,17 +203,9 @@ public class CardapioTela extends javax.swing.JInternalFrame {
         tfCardapioValor.setText("");
     }
 
-    private void tfCardapioValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCardapioValorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfCardapioValorActionPerformed
-
     private void btLimparCardapioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btLimparCardapioMouseClicked
         this.limparCampos();
     }//GEN-LAST:event_btLimparCardapioMouseClicked
-
-    private void btSalvarCardapioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarCardapioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btSalvarCardapioActionPerformed
 
     private void btSalvarCardapioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSalvarCardapioMouseClicked
         if (tfCardapioNome.getText().equals("") || tfCardapioValor.getText().equals("")) {
@@ -267,10 +243,6 @@ public class CardapioTela extends javax.swing.JInternalFrame {
             }
         }
     }//GEN-LAST:event_btDeletarCardapioMouseClicked
-
-    private void tbCardapioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbCardapioKeyPressed
-        
-    }//GEN-LAST:event_tbCardapioKeyPressed
 
     private void tbCardapioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCardapioMouseClicked
         tfCardapioId.setText(tbCardapio.getValueAt(tbCardapio.getSelectedRow(), CardapioTableModel.COL_ID_CARDAPIO).toString());
